@@ -23,12 +23,12 @@ module.exports = createReactClass({
     return (
       <div style={this.styleA()}>
         <button
-          style={this.styleB()}
           onClick={this.props.onClick}
           onMouseOver={() => this.setState({isHover: true})}
           onMouseOut={() => this.setState({isHover: false})}
           onMouseDown={() => this.setState({isActive: true})}
-          onMouseUp={() => this.setState({isActive: false})}>
+          onMouseUp={() => this.setState({isActive: false})}
+          style={this.styleB()}>
           <div style={this.styleC(this.props, this.state)}/>
           <label style={this.styleD(this.props, this.state)}>
             {this.props.children}
@@ -59,12 +59,13 @@ module.exports = createReactClass({
   styleC: function (props, state) {
 
     const hoverStyles = state.isHover ? {
-      borderColor: Color('#999').darken(0.1).string(),
+      borderColor: Color('#aaa').darken(0.1).string(),
       backgroundColor: Color('#aaa').darken(0.1).string(),
+      boxShadow: 'none',
       cursor: 'pointer',
     } : {}
     const activeStyles = state.isActive ? {
-      borderColor: Color('#999').lighten(0.5).string(),
+      borderColor: Color('#aaa').lighten(0.5).string(),
       backgroundColor: Color('#aaa').lighten(1).string(),
       boxShadow: `0 0 20px 0 ${Color('#aaa').lighten(0.4).string()}`,
     } : {}
@@ -76,10 +77,11 @@ module.exports = createReactClass({
       width: '100%',
       height: '100%',
       borderRadius: 6,
-      border: '1px solid #999',
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: '#aaa',
       backgroundColor: '#aaa',
-      transition: 'border 200ms linear',
-      transition: 'background-color 200ms linear',
+      transition: 'border 200ms linear, background-color 200ms linear',
     }, hoverStyles, activeStyles)
   },
   styleD: function (props, state) {
@@ -107,8 +109,7 @@ module.exports = createReactClass({
       color: '#aaa',
       backgroundColor: '#eee',
       border: 'none',
-      transition: 'color 100ms linear',
-      transition: 'background-color 100ms linear',
+      transition: 'color 100ms linear, background-color 100ms linear',
       userSelect: 'none',
     }, hoverStyles, activeStyles)
   }
