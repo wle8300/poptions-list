@@ -1,116 +1,75 @@
-import Color from 'color'
+// import PlainButton from './plain'
+import GelButton from './gel'
+
 import React from 'react';
 import createReactClass from 'create-react-class'
-import PropTypes from 'prop-types'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField'
+import {CompactPicker} from 'react-color'
 
 
 module.exports = createReactClass({
   getInitialState: function () {
     return {
-      isHover: false,
-      isActive: false,
-    }
-  },
-  getDefaultProps: function () {
-    return {
-      children: 'Button',
-      onClick: function () {
-        console.log('clicked.')
-      }
+      text: 'Submit',
+      backgroundColor: 'blue',
+      color: 'white',
+      canvasColor: '#ccc',
     }
   },
   render: function () {
     return (
-      <div style={this.styleA()}>
-        <button
-          onClick={this.props.onClick}
-          onMouseOver={() => this.setState({isHover: true})}
-          onMouseOut={() => this.setState({isHover: false})}
-          onMouseDown={() => this.setState({isActive: true})}
-          onMouseUp={() => this.setState({isActive: false})}
-          style={this.styleB()}>
-          <div style={this.styleC(this.props, this.state)}/>
-          <label style={this.styleD(this.props, this.state)}>
-            {this.props.children}
-          </label>
-        </button>
-      </div>
+      <MuiThemeProvider>
+        <div style={this.styleA(this.props, this.state)}>
+          {/* <PlainButton/> */}
+          <GelButton style={{backgroundColor: this.state.backgroundColor, color: this.state.color}}>
+            {this.state.text}
+          </GelButton>
+          <div style={this.styleB()}>
+            <div style={{backgroundColor: 'white', padding: '0.25rem', boxShadow: '0 2px 5px 0 rgba(0, 0, 0, 0.25)', borderRadius: 4,}}>
+              <TextField hintText={'"' +this.state.text+ '"'} underlineShow={false} onChange={this.handleChangeText}/>
+            </div>
+            <CompactPicker color={this.state.backgroundColor} onChangeComplete={this.handleSelectBackgroundColor}/>
+            <CompactPicker color={this.state.color} onChangeComplete={this.handleSelectColor}/>
+            <CompactPicker color={this.state.canvasColor} onChangeComplete={this.handleSelectCanvasColor}/>
+          </div>
+        </div>
+      </MuiThemeProvider>
     )
   },
-  styleA: function () {
+  handleChangeText: function (event, text) {
+
+    if (!text) return this.setState({text: this.getInitialState().text})
+
+    this.setState({text: text})
+  },
+  handleSelectBackgroundColor: function (color) {
+
+    this.setState({backgroundColor: color.hex})
+  },
+  handleSelectColor: function (color) {
+
+    this.setState({color: color.hex})
+  },
+  handleSelectCanvasColor: function (color) {
+
+    this.setState({canvasColor: color.hex})
+  },
+  styleA: function (props, state) {
     return {
       height: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#ccc',
+      backgroundColor: this.state.canvasColor,
     }
   },
   styleB: function () {
     return {
-      position: 'relative',
-      padding: '0',
-      background: 'transparent',
-      border: 'none',
-      outline: 'none',
-      cursor: 'pointer',
-    }
-  },
-  styleC: function (props, state) {
-
-    const hoverStyles = state.isHover ? {
-      borderColor: Color('#aaa').darken(0.1).string(),
-      backgroundColor: Color('#aaa').darken(0.1).string(),
-      boxShadow: 'none',
-      cursor: 'pointer',
-    } : {}
-    const activeStyles = state.isActive ? {
-      borderColor: Color('#aaa').lighten(0.5).string(),
-      backgroundColor: Color('#aaa').lighten(1).string(),
-      boxShadow: `0 0 20px 0 ${Color('#aaa').lighten(0.4).string()}`,
-    } : {}
-
-
-    return Object.assign({
       position: 'absolute',
-      padding: 2,
-      width: '100%',
-      height: '100%',
-      borderRadius: 6,
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: '#aaa',
-      backgroundColor: '#aaa',
-      transition: 'border 200ms linear, background-color 200ms linear',
-    }, hoverStyles, activeStyles)
-  },
-  styleD: function (props, state) {
-
-    const hoverStyles = state.isHover ? {
-      color: Color('#aaa').darken(0.1).string(),
-      backgroundColor: Color('#eee').darken(0.1).string(),
-      cursor: 'pointer',
-    } : {}
-    const activeStyles = state.isActive ? {
-      color: Color('#aaa').lighten(0.4).string(),
-      backgroundColor: Color('#eee').darken(0.25).string(),
-    } : {}
-
-
-    return Object.assign({
-      position: 'relative',
-      top: 3,
-      left: 3,
-      display: 'block',
-      padding: '0.5rem 1rem',
-      fontFamily: '"SF UI Display", Helvetica',
-      fontSize: '1rem',
-      fontWeight: 'bold',
-      color: '#aaa',
-      backgroundColor: '#eee',
-      border: 'none',
-      transition: 'color 100ms linear, background-color 100ms linear',
-      userSelect: 'none',
-    }, hoverStyles, activeStyles)
+      bottom: 0,
+      left: 0,
+      margin: '1rem',
+    }
   }
 })
