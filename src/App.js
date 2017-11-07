@@ -176,9 +176,9 @@ class App extends Component {
   }
   createAudioContext = () => {
 
-    var audioContext = window.AudioContext || window.webkitAudioContext
+    var Context = window.AudioContext || window.webkitAudioContext
 
-    return audioContext()
+    return new Context()
   }
   changeTheme = () => {
     const newTheme = this._themeHat[Math.floor(Math.random() * this._themeHat.length)]
