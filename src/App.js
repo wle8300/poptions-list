@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 class App extends Component {
   constructor () {
     super()
-    this._audioContext = new AudioContext()
+    this._audioContext = this.createAudioContext()
     this._animationTime = 150
     this._resizeListener = window.addEventListener('resize', () => {
 
@@ -173,6 +173,12 @@ class App extends Component {
   componentDidMount () {
 
 
+  }
+  createAudioContext = () => {
+
+    var audioContext = window.AudioContext || window.webkitAudioContext
+
+    return audioContext()
   }
   changeTheme = () => {
     const newTheme = this._themeHat[Math.floor(Math.random() * this._themeHat.length)]
