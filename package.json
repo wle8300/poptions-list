@@ -1,5 +1,6 @@
 {
-  "name": "button1",
+  "name": "ios-phonepad",
+  "homepage": "https://wle8300.github.io/ios-phonepad",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -17,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
