@@ -11,7 +11,7 @@ class Button extends Component {
       isActive: false,
       isResetting: false,
     }
-    this._animationInterval = 150
+    this._animationTime = 150
   }
   render () {
     return (
@@ -22,7 +22,7 @@ class Button extends Component {
         onMouseDown={this.handlePress}
         onMouseUp={() => this.setState({isResetting: true}, () => setTimeout(() => {
           this.setState({isActive: false, isResetting: false})
-        }, this._animationInterval))}
+        }, this._animationTime))}
         style={this.$3088423514288()}>
         {this.props.children}
       </button>
@@ -47,7 +47,7 @@ class Button extends Component {
     } : {}
     const reset = this.state.isResetting ? {
       backgroundColor: 'transparent',
-      transition: `all ${this._animationInterval}ms ease-out`,
+      transition: `all ${this._animationTime}ms ease-out`,
     } : {}
 
     return Object.assign(
@@ -60,11 +60,11 @@ class Button extends Component {
         justifyContent: 'center',
         alignItems: 'center',
         margin: '0.85vw',
-        padding: '3vw',
-        width: '3vw',
-        height: '3vw',
+        padding: '5vw',
+        width: '5vw',
+        height: '5vw',
         color: this.props.accentColor,
-        border: `0.15vw solid ${this.props.accentColor}`,
+        border: `0.25vw solid ${this.props.accentColor}`,
         borderRadius: '100%',
         backgroundColor: this.props.bgColor,
         cursor: 'pointer',
