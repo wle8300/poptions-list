@@ -20,9 +20,9 @@ class Button extends Component {
         onMouseOver={() => this.setState({isHover: true})}
         onMouseOut={() => this.setState({isHover: false, isActive: false})}
         onMouseDown={this.handlePress}
-        onMouseUp={() => this.setState({isResetting: true}, () => setTimeout(() => {
-          this.setState({isActive: false, isResetting: false})
-        }, this._animationTime))}
+        onTouchStart={this.handlePress}
+        onMouseUp={this.handlePressReset}
+        onTouchEnd={this.handlePressReset}
         style={this.$3088423514288()}>
         {this.props.children}
       </button>
@@ -37,6 +37,16 @@ class Button extends Component {
     webaudio(this.props.audioContext, cipher.play()).play()
 
     this.setState({isActive: true, isResetting: false})
+  }
+  handlePressReset = () => {
+
+    this.setState({isResetting: true}, () => {
+
+      setTimeout(() => {
+
+        this.setState({isActive: false, isResetting: false})
+      }, this._animationTime)
+    })
   }
   $3088423514288 = () => {
 
