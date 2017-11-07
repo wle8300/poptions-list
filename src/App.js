@@ -8,75 +8,114 @@ class App extends Component {
     super()
     this._bgColor = "#f5f5f5"
     this._accentColor = "#444444"
+    this._audioContext = new AudioContext()
   }
   render () {
     return (
       <div style={this.$3064154821488()}>
         <div style={this.$2896590892662()}>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="1"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>1</div>
-            <div style={this.$2361762005236()}>&nbsp;</div>
+            <div style={this.$2361762005236()}></div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="2"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>2</div>
             <div style={this.$2361762005236()}>ABC</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="3"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>3</div>
             <div style={this.$2361762005236()}>DEF</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="4"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>4</div>
             <div style={this.$2361762005236()}>GHI</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="5"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>5</div>
             <div style={this.$2361762005236()}>JKL</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="6"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>6</div>
             <div style={this.$2361762005236()}>MNO</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="7"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>7</div>
             <div style={this.$2361762005236()}>PQRS</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="8"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>8</div>
             <div style={this.$2361762005236()}>TUV</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="9"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>9</div>
             <div style={this.$2361762005236()}>WXYZ</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="*"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3614752369292()}>*</div>
             <div style={this.$2361762005236()}></div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
+          <Button
+            tone="0"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
             <div style={this.$3051674128548()}>0</div>
             <div style={this.$2361762005236()}>+</div>
           </Button>
-          <Button bgColor={this._bgColor} accentColor={this._accentColor} style={this.$3307484330528()}>
-            <div style={this.$3255975513423()}>#</div>
-            <div style={this.$2361762005236()}></div>
-          </Button>
+          <Button
+            tone="#"
+            bgColor={this._bgColor}
+            accentColor={this._accentColor}
+            audioContext={this._audioContext}>
+          <div style={this.$3255975513423()}>#</div>
+          <div style={this.$2361762005236()}></div>
+        </Button>
         </div>
       </div>
     )
   }
   $2896590892662 () {
     return {display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '31vw',}
-  }
-  $3307484330528 () {
-    return {
-      padding: '3vw',
-      width: '3vw',
-      height: '3vw',
-      flexGrow: 0,
-      flexShrink: 0,
-      margin: '0.85vw',
-    }
   }
   $3064154821488 () {
     return {

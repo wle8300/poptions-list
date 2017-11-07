@@ -1,4 +1,5 @@
-// import Color from 'color'
+import touchtone from 'touchtone'
+import webaudio from 'webaudio'
 import React, {Component} from 'react';
 
 
@@ -18,7 +19,7 @@ class Button extends Component {
         onClick={() => true}
         onMouseOver={() => this.setState({isHover: true})}
         onMouseOut={() => this.setState({isHover: false, isActive: false})}
-        onMouseDown={() => this.setState({isActive: true, isResetting: false})}
+        onMouseDown={this.handlePress}
         onMouseUp={() => this.setState({isResetting: true}, () => setTimeout(() => {
           this.setState({isActive: false, isResetting: false})
         }, this._animationInterval))}
@@ -26,6 +27,16 @@ class Button extends Component {
         {this.props.children}
       </button>
     )
+  }
+  handlePress = () => {
+
+    const cipher = touchtone()
+
+    cipher.dial(this.props.tone)
+
+    webaudio(this.props.audioContext, cipher.play()).play()
+
+    this.setState({isActive: true, isResetting: false})
   }
   $3088423514288 = () => {
 
@@ -43,12 +54,15 @@ class Button extends Component {
       {},
       {
         display: 'flex',
+        flexGrow: 0,
+        flexShrink: 0,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '1vw',
-        height: '1vw',
-        padding: '1vw',
+        margin: '0.85vw',
+        padding: '3vw',
+        width: '3vw',
+        height: '3vw',
         color: this.props.accentColor,
         border: `0.15vw solid ${this.props.accentColor}`,
         borderRadius: '100%',
