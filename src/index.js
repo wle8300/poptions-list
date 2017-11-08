@@ -1,11 +1,11 @@
-import initReactFastclick from 'react-fastclick';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import reactFastclick from 'react-fastclick'
 
-initReactFastclick();
+reactFastclick()
 
 ReactDOM.render(
   <App />,
   document.getElementById('root')
-);
+)

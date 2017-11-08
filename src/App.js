@@ -10,11 +10,14 @@ class App extends Component {
     this._animationTime = 150
     this._resizeListener = window.addEventListener('resize', () => {
 
-      this.setState({height: window.outerHeight})
+      this.setState({
+        width: window.outerWidth,
+        height: window.outerHeight,
+      })
     })
     this._themeHat = [
       {
-        name: 'iPhone Standard',
+        name: 'iPhone',
         bgColor: "#f5f5f5",
         accentColor: "#444444",
       },
@@ -24,7 +27,7 @@ class App extends Component {
         accentColor: "#b3ff45",
       },
       {
-        name: 'LA Clippers',
+        name: 'Lakers',
         bgColor: "#ffec42",
         accentColor: "#d400ff",
       },
@@ -41,10 +44,10 @@ class App extends Component {
       {
         name: 'Michael Bolton',
         bgColor: "#f9f9f9",
-        accentColor: "#fbe56b",
+        accentColor: "#e0cf6c",
       },
       {
-        name: '1980s NASA',
+        name: 'NASA',
         bgColor: "#e9e9e9",
         accentColor: "#42528e",
       },
@@ -75,72 +78,90 @@ class App extends Component {
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>1</div>
-            <div style={this.$2361762005236()}></div>
+            <div>
+              <div style={this.$3051674128548()}>1</div>
+              <div style={this.$2361762005236()}></div>
+            </div>
           </Button>
           <Button
             tone="2"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>2</div>
-            <div style={this.$2361762005236()}>ABC</div>
+            <div>
+              <div style={this.$3051674128548()}>2</div>
+              <div style={this.$2361762005236()}>ABC</div>
+            </div>
           </Button>
           <Button
             tone="3"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>3</div>
-            <div style={this.$2361762005236()}>DEF</div>
+            <div>
+              <div style={this.$3051674128548()}>3</div>
+              <div style={this.$2361762005236()}>DEF</div>
+            </div>
           </Button>
           <Button
             tone="4"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>4</div>
-            <div style={this.$2361762005236()}>GHI</div>
+            <div>
+              <div style={this.$3051674128548()}>4</div>
+              <div style={this.$2361762005236()}>GHI</div>
+            </div>
           </Button>
           <Button
             tone="5"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>5</div>
-            <div style={this.$2361762005236()}>JKL</div>
+            <div>
+              <div style={this.$3051674128548()}>5</div>
+              <div style={this.$2361762005236()}>JKL</div>
+            </div>
           </Button>
           <Button
             tone="6"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>6</div>
-            <div style={this.$2361762005236()}>MNO</div>
+            <div>
+              <div style={this.$3051674128548()}>6</div>
+              <div style={this.$2361762005236()}>MNO</div>
+            </div>
           </Button>
           <Button
             tone="7"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>7</div>
-            <div style={this.$2361762005236()}>PQRS</div>
+            <div>
+              <div style={this.$3051674128548()}>7</div>
+              <div style={this.$2361762005236()}>PQRS</div>
+            </div>
           </Button>
           <Button
             tone="8"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>8</div>
-            <div style={this.$2361762005236()}>TUV</div>
+            <div>
+              <div style={this.$3051674128548()}>8</div>
+              <div style={this.$2361762005236()}>TUV</div>
+            </div>
           </Button>
           <Button
             tone="9"
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>9</div>
-            <div style={this.$2361762005236()}>WXYZ</div>
+            <div>
+              <div style={this.$3051674128548()}>9</div>
+              <div style={this.$2361762005236()}>WXYZ</div>
+            </div>
           </Button>
           <Button
             tone="*"
@@ -155,8 +176,10 @@ class App extends Component {
             bgColor={this.state.theme.bgColor}
             accentColor={this.state.theme.accentColor}
             audioContext={this._audioContext}>
-            <div style={this.$3051674128548()}>0</div>
-            <div style={this.$2361762005236()}>+</div>
+            <div>
+              <div style={this.$3051674128548()}>0</div>
+              <div style={this.$2361762005236()}>+</div>
+            </div>
           </Button>
           <Button
             tone="#"
@@ -169,10 +192,6 @@ class App extends Component {
         </div>
       </div>
     )
-  }
-  componentDidMount () {
-
-
   }
   createAudioContext = () => {
 
@@ -187,12 +206,12 @@ class App extends Component {
   }
   $3064154821488 () {
     return {
-      padding: '3vw 0px',
+      padding: '8vw 0px',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      // justifyContent: 'center',
       flexDirection: 'column',
-      height: this.state.height,
+      height: this.state.height || '100%',
       transition: `all ${this._animationTime}ms linear`,
       backgroundColor: this.state.theme.bgColor,
     }
@@ -202,40 +221,39 @@ class App extends Component {
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'center',
-      width: '47vw',
+      width: '80vw',
     }
   }
   $2126869568508 () {
     return {
-      color: this.state.theme.accentColor,
-      fontSize: '3vw',
+      padding: '0 0 8vw',
+      fontSize: '5vw',
       fontWeight: 'bold',
-      padding: '0 0 3vw',
+      color: this.state.theme.accentColor,
     }
   }
   $2579351992763 () {
-    return {position: 'fixed', left: '1vw', bottom: '1vw'}
+    return {position: 'fixed', left: '4vw', bottom: '6vw', padding: '1vw'}
   }
   $3051674128548 () {
     return {
-      fontSize: '3.25vw',
+      fontSize: '6.25vw',
     }
   }
   $2361762005236 () {
     return {
-      fontSize: '1vw',
-      letterSpacing: '0.085vw',
+      fontSize: '2.15vw',
+      letterSpacing: '0.2vw',
     }
   }
   $3614752369292 () {
     return {
-      fontSize: '6vw',
-      height: '4vw',
+      fontSize: '14vw',
     }
   }
   $3255975513423 () {
     return {
-      fontSize: '3vw',
+      fontSize: '9vw',
     }
   }
 }
