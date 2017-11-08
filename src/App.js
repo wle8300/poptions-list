@@ -57,7 +57,7 @@ class App extends Component {
         accentColor: "#ff46ed",
       },
       {
-        name: 'Diva',
+        name: 'D:VA',
         bgColor: "#f7f7f7",
         accentColor: "#ff46ed",
       },
